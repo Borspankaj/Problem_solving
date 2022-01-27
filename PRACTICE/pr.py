@@ -1,7 +1,1 @@
-l=[10,10,10,10]
-
-for i in l:
-    l.remove(i)
-    
-
-print(l)
+print(list(map((lambda x:x**2),filter((lambda x:x%2==1),range(10) ))))
