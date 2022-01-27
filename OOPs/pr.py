@@ -1,3 +1,23 @@
-from math import factorial
+class se(Exception):
+    pass
 
-print(math.factorial(5))
+class cal:
+    def div(self,a,b):
+        c=a//b
+        raise se
+
+try:
+    c=cal()
+    c.div(10,0)
+    
+except se:
+    print("some")
+
+except :
+    print('Error')
+
+finally:
+    print("finally")
+
+
+

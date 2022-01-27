@@ -1,3 +1,7 @@
-l1=[1,2,3,4]
-l2=[5,6,7,8]
-print(l1+l2)
+l=[10,10,10,10]
+
+for i in l:
+    l.remove(i)
+    
+
+print(l)

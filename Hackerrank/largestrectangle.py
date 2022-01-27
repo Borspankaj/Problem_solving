@@ -1,34 +1,40 @@
+h = [11,11,10,10,10]
 def solve(h):
-    st=[]
-    n=len(h)
-    nser=[]
     nsel=[]
-    for i in range(len(h)-1,-1,-1):
-        while st and h[st[-1]]>=h[i]:
-            st.pop()
-        if not st:
-            nser.append(-1)
-        else:
-            nser.append(st[-1])
-        st.append(i)
-    nser.reverse()
-    st=[]
+    nser=[]
+    stack=[]
     for i in range(len(h)):
-        while st and h[st[-1]]>=h[i]:
-            st.pop()
-        if not st:
+        while stack and stack[-1][0]>=h[i]:
+            stack.pop()
+                
+        if not stack:
             nsel.append(-1)
         else:
-            nsel.append(st[-1])
-        st.append(i)
-    print(nsel)
-    mr=0
-    for i in range(n):
-        rl=nsel[i]
-        rr=nser[i] if nser[i]!=-1 else n 
-        d=rr-rl-1
-        m=d*h[i]
-        mr=max(m,mr)
-        
-    return mr
+            nsel.append(stack[-1][1])
+        stack.append([h[i],i])
 
+    
+    stack=[]
+    n=len(h)
+    for i in range(n-1,-1,-1):
+        while stack and stack[-1][0]>=h[i]:
+            stack.pop()
+
+        if not stack:
+            nser.append(n)
+
+        else:
+            nser.append(stack[-1][1])
+
+        stack.append([h[i],i])
+    nser.reverse()
+
+    maxx=0
+    for i in range(n):
+        area=(nser[i]-nsel[i]-1)*h[i]
+        print(area)
+        maxx=max(area,maxx)
+
+    return maxx
+        
+print(solve(h))    

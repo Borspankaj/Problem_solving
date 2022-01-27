@@ -1,12 +1,19 @@
-from re import X
+class A:
+    def __init__(self) -> None:
+        self.cal(30)
+        print(" da ",self.i)
+
+    def cal(self,i):
+        self.i=2*i
+
+class B(A):
+    def __init__(self) -> None:
+        super().__init__()
 
 
-fruits=['apples','oranges','bananas','mangoes','grapes','strawberry']
-a=lambda x:x+x
-print(a(10))
+    def cal(self,i):
+        self.i=3*i
 
-pr=lambda a,b:a*a+b
 
-print(pr(10,20))
-
+b=B()
 
