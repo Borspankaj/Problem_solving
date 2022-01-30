@@ -19,8 +19,6 @@ def minimumSwaps(a, n):
             return 1
         else:
             return -1
-
-
     copy = a.copy()
     copy.sort()
     m = {}
