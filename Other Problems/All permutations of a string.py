@@ -4,7 +4,7 @@ def solve(string,left,right):
 
     else:
         for i in range(left,right+1):
-            string[left],string[i]=string[i],string[left]
+            string[left],string[i]=string[i],string[left] 
             solve(string,left+1,right)
             string[left],string[i]=string[i],string[left]
 
