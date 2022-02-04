@@ -1,4 +1,4 @@
-    
+
 def solve(s,t):
     d1={}
     d2={}
