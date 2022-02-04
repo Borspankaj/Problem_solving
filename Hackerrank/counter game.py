@@ -1,9 +1,8 @@
 def prev(n):
-    p = 1
-    while p <= n :
+    p=1
+    while p<=n :
         p <<= 1
-        
-    p >>= 1
+    p>>=1
     return p
 
 def counterGame(n):
@@ -13,9 +12,7 @@ def counterGame(n):
             n//=2
         else:
             n=n-prev(n)
-
-        counter=not counter
-
+    counter=not counter
     if not counter:
         return 'Louise'
 
