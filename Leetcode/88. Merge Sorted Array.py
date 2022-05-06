@@ -1,16 +1,18 @@
-nums1 = [1,2,3,0,0,0]
-nums2 = [2,5,6]
-n=len(nums2)
-i=0
-m=6
-n=3
-for _ in range(len(nums2)):
-    nums1.pop()
-while len(nums1)!=m+n:
-    if (nums2 and nums2[0]<nums1[i]):
-        val=nums2.pop(0)
-        nums1.insert(i,val)
-      
-    i+=1
+class Solution:
+    def merge(self, nums1, m: int, nums2, n) :
+        idx1 = 0
+        idx2 = 0
+        if n == 0:
+            return nums1
+        while idx1 < m  :
+            if nums1[idx1] > nums2[idx2] :
+                nums1[idx1] , nums2[idx2] = nums2[idx2] , nums1[idx1]
+                nums2.sort()
 
-print(nums1)
+            idx1 += 1
+
+        for i in range(n):
+
+            nums1[i+idx1] = nums2[i]
+
+        return nums1
